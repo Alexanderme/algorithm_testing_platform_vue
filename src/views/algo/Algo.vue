@@ -1,12 +1,14 @@
 <template>
     <div id="algo">
-        <span>算法页面</span>
+        <main-left-tab-bar></main-left-tab-bar>
     </div>
 </template>
 
 <script>
+    import MainLeftTabBar from "components/content/mainlefttabbar/MainLeftTabBar";
     export default {
-        name: "Algo"
+        name: "Algo",
+        components: {MainLeftTabBar}
     }
 </script>
 
