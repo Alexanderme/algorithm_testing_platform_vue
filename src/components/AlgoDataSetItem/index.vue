@@ -107,7 +107,7 @@
           document.body.appendChild(link);
           link.click()
           this.isLoding = true
-            if (this.isLoding){loading.close();}
+          if (this.isLoding){loading.close();}
         }).then(res =>{
           this.reload();
         })
@@ -118,7 +118,6 @@
         text: 'Loading',
         spinner: 'el-icon-loading',
         background: 'rgba(0, 0, 0, 0.7)'});
-        console.log(this.radio_file, "1231231");
         if (this.radio_tag === "" || this.radio_file === "" || this.tag_kinds===""){
           this.dataNotEnough()
           this.reload();
@@ -131,7 +130,6 @@
         formData.append('file_suffix', this.file_suffix)
         formData.append('tag_kinds', this.tag_kinds)
         AlgoDataSetFormatImage(formData).then((res) => {
-          console.log(res, "res.task_id");
           this.task_id = res.task_id
           this.isLoding = true
           if (this.isLoding){loading.close();}

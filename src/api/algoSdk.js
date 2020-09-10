@@ -17,15 +17,6 @@ export function getSdkOpenCV(params) {
     })
 }
 
-export function getAlgoPrecision(formData) {
-    return request({
-        url: 'algo_sdk/get_files_result',
-        method:"post",
-        data:formData
-    })
-}
-
-
 export function postAlgoFilesResult(formData) {
     return request({
         url: 'algo_sdk/run_file_get_results',
@@ -86,6 +77,7 @@ export function getAlgoDataSetTaskId(params) {
     })
 }
 
+
 export function clearDataSetEnv(formData) {
   return request({
         url: 'algo_sdk/data_set_clean_env',
@@ -94,4 +86,31 @@ export function clearDataSetEnv(formData) {
     })
 }
 
+//miss_rate
 
+export function getMissRateTaskId(params) {
+  return request({
+        url: 'algo_sdk/rate_taskstatus',
+        method:"get",
+        params
+    })
+}
+
+
+export function getAlgoPrecision(formData) {
+    return request({
+        url: 'algo_sdk/get_files_result',
+        method:"post",
+        data:formData
+    })
+}
+
+// performamce
+
+export function getAlgoResourceOccupation(formData) {
+    return request({
+        url: 'algo_sdk/resource_occupation',
+        method:"post",
+        data:formData
+    })
+}

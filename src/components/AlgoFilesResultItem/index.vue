@@ -15,7 +15,7 @@
          :auto-upload="false">
         <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
         <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload();getAlgoFilesResultData()">提交请求</el-button>
-        <div slot="tip" class="el-upload__tip">注意:只能上传打包好的zip文件, 为了提高效率请裁剪视频,视频长度不要大于5分钟</div>
+        <div slot="tip" class="el-upload__tip">注意:只能上传打包好的zip文件, 为了提高效率请裁剪视频,视频长度不要大于5分钟, 不支持中文命名, 请在上传之前处理中文</div>
       </el-upload>
     </div>
      <div class="center">
@@ -48,7 +48,7 @@
         algo_mirror:"",
         uploadUrl:"",
         isLoding:false,
-        iasRes:"注意: 图片只支持jpg,png,jpeg, 视频只支持mp4,avi,视频存在格式问题会导致没有视频结果,请先格式工厂格式下视频",
+        iasRes:"注意: 1:图片只支持jpg,png,jpeg, 视频只支持mp4,avi,视频存在格式问题会导致没有视频结果,请先格式工厂格式下视频 2:参数配置方式只支持3.0算法",
         task_id: null,
         percentage: 0,
         current:null,
@@ -124,10 +124,8 @@
                     link.click()
                     window.clearInterval(this.timer)
                   }).then(res=>{
-                    if (this.error_files !== []){
-                        this.iasRes = "部分文件不是jpg,png,jpeg,mp4,avi后缀 请注意"
-                    }
                     this.clearAlgoRunEnvData()
+                    this.$router.go(0)
                   })
                 } else {
                   this.status = res.status;
